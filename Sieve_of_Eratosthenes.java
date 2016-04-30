@@ -19,7 +19,9 @@ public class Sieve_of_Eratosthenes {
                 primes.add(i);
 
                 for (int j = i * i; j < a.length; j += i) {
-                    a[j] = 0;
+                    if (j < a.length && j > 0) {
+                        a[j] = 0;
+                    }
                 }
             }
         }
