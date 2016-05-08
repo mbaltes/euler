@@ -1,30 +1,31 @@
 // Sieve of Eratosthenes
-// Returns ArrayList of prime numbers
+// Returns ArrayList of prime numbers <= n
+//
+// Adapted from Sedewick and Wayne
+// http://introcs.cs.princeton.edu/java/14array/PrimeSieve.java.html
 
 import java.util.*;
 
 public class Sieve_of_Eratosthenes {
     public ArrayList<Integer> primes(int n) {
-        int[] a = new int[n + 1];
-        ArrayList<Integer> primes = new ArrayList<Integer>();
-        for (int i = 0; i < a.length; i++) {
-            a[i] = 1;
+        ArrayList<Integer> p = new ArrayList<Integer>();
+        boolean[] isPrime = new boolean[n+1];
+        for (int i = 2; i <= n; i++) {
+            isPrime[i] = true;
         }
 
-        a[0] = 0;
-        a[1] = 0;
-
-        for (int i = 0; i < a.length; i++) {
-            if (a[i] == 1) {
-                primes.add(i);
-
-                for (int j = i * i; j < a.length; j += i) {
-                    if (j < a.length && j > 0) {
-                        a[j] = 0;
-                    }
+        for (int i = 2; i*i <= n; i++) {
+            if (isPrime[i]) {
+                for (int j = i; i*j <= n; j++) {
+                    isPrime[i*j] = false;
                 }
             }
         }
-        return primes;
+        for (int i = 2; i <= n; i++) {
+            if (isPrime[i]) {
+                p.add(i);
+            }
+        }
+        return p;
     }
 }
