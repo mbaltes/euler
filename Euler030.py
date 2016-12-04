@@ -1,5 +1,5 @@
 def get_sum(n):
-    '''Raises each digit of n to the 5th power and sums them.'''
+    """Raises each digit of n to the 5th power and sums them."""
     sum = 0
     while n > 0:
         sum += (n % 10) ** 5
