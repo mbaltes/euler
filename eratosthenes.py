@@ -6,7 +6,7 @@ def sieve_of_eratosthenes(max_integer):
             for i in range(2 * start, max_integer + 1, start):
                 sieve[i] = False
     primes = []
-    for i in range(1000, max_integer + 1): # 1000 value is where the primes start
+    for i in range(2, max_integer + 1): # 1000 value is where the primes start
         if sieve[i]:
             primes.append(i)
     return primes
@@ -20,9 +20,8 @@ def sieve_of_eratosthenes_set(max_integer):
             for i in range(2 * start, max_integer + 1, start):
                 sieve[i] = False
     primes = set()
-    for i in range(1000, max_integer + 1): # 1000 value is where the primes start
+    for i in range(2, max_integer + 1): # 1000 value is where the primes start
         if sieve[i]:
             primes.add(i)
     return primes
-
 
