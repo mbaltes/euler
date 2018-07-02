@@ -52,6 +52,7 @@ public class Euler004 {
 
         long end = System.nanoTime(); // End timer.
         double time = (double)(end - start) / 1000000000;
+        
         System.out.println("Time: " + time + " sec.");
     }
 }

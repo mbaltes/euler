@@ -30,6 +30,7 @@ public class Euler002 {
             }
             y = y + x;
         }
+        
         System.out.println(sum);
     }
 }
